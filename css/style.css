@@ -1,0 +1,22 @@
+.container {
+  max-width: 45rem !important;
+  max-height: 50rem;
+  margin: auto !important;
+}
+ul {
+  display: flex;
+  padding: 0 !important;
+  margin: auto;
+}
+ul li {
+  border: 1px solid rgb(160, 152, 152);
+  padding: 0 !important;
+  width: 5rem !important;
+  height: 4rem !important;
+  font-size: small;
+  text-align: center;
+}
+
+.stats {
+  font-size: small;
+}
