@@ -1,4 +1,16 @@
-let all_cell = document.querySelectorAll("li");
+let all_cell = $("li");
+
+let set_player_btn = $("#set_player");
+console.log(set_player_btn);
+
+// set_player_btn.addEventListener("click", () => {
+//   console.log("hello");
+// });
+
+// set_player_btn.addEventListener("click", () => {
+//   let player_1_name = $("#player_1_name").textContent;
+//   let player_2_name = $("#player_2_name").textContent;
+// });
 
 const board_cell_array = Array.from(all_cell);
 
@@ -54,7 +66,7 @@ window.onload = () => {
         board_cell_array[random_ind].textContent == "" &&
         !all_cell[random_ind].classList.contains("bg-primary")
       ) {
-        board_cell_array[random_ind].textContent = "Player 1";
+        board_cell_array[random_ind].textContent = "player_1";
       }
     }
   }
@@ -69,7 +81,7 @@ window.onload = () => {
         board_cell_array[random_ind].textContent == "" &&
         !all_cell[random_ind].classList.contains("bg-primary")
       ) {
-        board_cell_array[random_ind].textContent = "Player 2";
+        board_cell_array[random_ind].textContent = "player_2";
       }
     }
   }
