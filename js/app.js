@@ -1,24 +1,52 @@
 let all_cell = $("li");
 
 let set_player_btn = $("#set_player");
-console.log(set_player_btn);
 
-// set_player_btn.addEventListener("click", () => {
-//   console.log("hello");
-// });
+const WEAPON = [
+  {
+    id: 1,
+    url: './images/double_sword.png',
+    name: 'Double Sword',
+    category: 'Double Attack',
+    points: '40',
+    className: 'weapon'
+  },
+  {
+    id: 2,
+    url: './images/sword.png',
+    name: 'Sword and Shield',
+    category: 'Defend and Attack',
+    points: '55',
+    className: 'weapon'
+  },
+  {
+    id: 3,
+    url: './images/sword_and_shield.png',
+    name: 'Single Sword',
+    category: 'Attack',
+    points: '30',
+    className: 'weapon'
+  },
+  {
+    id: 4,
+    url: './images/diamond.png',
+    name: 'Diamond',
+    category: 'Energy',
+    points: '120',
+    className: 'weapon'
+  }
 
-// set_player_btn.addEventListener("click", () => {
-//   let player_1_name = $("#player_1_name").textContent;
-//   let player_2_name = $("#player_2_name").textContent;
-// });
+]
+
+
 
 const board_cell_array = Array.from(all_cell);
 
 const dimBox = () => {
-  for (let i = 0; i < 11; i++) {
+  for (let i = 0; i < 17; i++) {
     let random_ind = Math.floor(Math.random() * 72);
     if (
-      board_cell_array[random_ind].textContent == "" &&
+      board_cell_array[random_ind].style.backgroundImage == "" &&
       !all_cell[random_ind].classList.contains("bg-primary")
     ) {
       all_cell[random_ind].classList = "bg bg-primary";
@@ -31,9 +59,12 @@ const placeWeapon = () => {
     let random_ind = Math.floor(Math.random() * 72);
     if (
       !all_cell[random_ind].classList.contains("bg-primary") &&
-      board_cell_array[random_ind].textContent == ""
+      board_cell_array[random_ind].style.backgroundImage == ""
     ) {
-      all_cell[random_ind].textContent = "weapon";
+      all_cell[random_ind].style.backgroundImage = `url(${WEAPON[i].url})`;
+
+      all_cell[random_ind].classList = `${WEAPON[i].className}`;
+
     }
   }
 };
@@ -66,7 +97,8 @@ window.onload = () => {
         board_cell_array[random_ind].textContent == "" &&
         !all_cell[random_ind].classList.contains("bg-primary")
       ) {
-        board_cell_array[random_ind].textContent = "player_1";
+        board_cell_array[random_ind].style.backgroundImage = "url('./images/player_1.png')";
+        board_cell_array[random_ind].id = "player_1";
       }
     }
   }
@@ -81,7 +113,9 @@ window.onload = () => {
         board_cell_array[random_ind].textContent == "" &&
         !all_cell[random_ind].classList.contains("bg-primary")
       ) {
-        board_cell_array[random_ind].textContent = "player_2";
+        board_cell_array[random_ind].style.backgroundImage = "url('./images/player_2.png')";
+        board_cell_array[random_ind].id = "player_2";
+
       }
     }
   }
