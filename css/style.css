@@ -29,7 +29,6 @@ ul li {
   background-size: contain;
 }
 
-
 @media screen and (min-width: 960px) {
   .container {
     max-width: 75vw;
